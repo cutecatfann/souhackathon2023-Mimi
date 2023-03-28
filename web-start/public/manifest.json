@@ -1,7 +1,0 @@
-{
-  "name": "Shakespeare Chat",
-  "short_name": "Shakespeare CHat",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "orientation": "portrait"
-}
