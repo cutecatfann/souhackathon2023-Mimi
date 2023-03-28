@@ -1,43 +1,25 @@
-// Get a reference to the "Shakespeareify" button
-const shakespeareifyButton = document.getElementById("shakespeareify-button");
+import React, { useState } from "react";
+import { translate_to_shakespeare } from "./translator";
 
-// Add an event listener to listen for clicks on the "Shakespeareify" button
-shakespeareifyButton.addEventListener("click", () => {
-  // Get the text from the input field
-  const messageInput = document.getElementById("message");
-  const text = messageInput.value;
+function App() {
+  const [inputText, setInputText] = useState("");
+  const [outputText, setOutputText] = useState("");
 
-  // Send the text to the Flask server to translate it to Shakespearean English
-  fetch("/translate", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ text: text }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Display the translation in the chat area
-      const message = data.message;
-      addMessage(message);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  const handleTranslate = () => {
+    const translatedText = translate_to_shakespeare(inputText);
+    setOutputText(translatedText);
+  };
 
-  // Clear the input field
-  messageInput.value = "";
-});
-
-// Function to add a message to the chat area
-function addMessage(message) {
-  // Get a reference to the chat area
-  const messages = document.getElementById("messages");
-
-  // Create a new message element
-  const messageElement = document.createElement("li");
-  messageElement.textContent = message;
-
-  // Append the message element to the chat area
-  messages.appendChild(messageElement);
+  return (
+    <div>
+      <textarea
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+      />
+      <button onClick={handleTranslate}>Shakespearify</button>
+      <textarea value={outputText} readOnly />
+    </div>
+  );
 }
+
+export default App;

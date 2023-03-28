@@ -52,7 +52,7 @@ main, #messages-card {
 .message-container {
   display: block;
   margin-top: 10px;
-  border-top: 1px solid #c95e5e;
+  border-top: 1px solid #fafafa;
   padding-top: 10px;
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -109,7 +109,7 @@ main, #messages-card {
   min-height: 0;
 }
 .mdl-card {
-  background: linear-gradient(white, #f9f9f9);
+  background: linear-gradient(white, #faf9f9);
   justify-content: space-between;
 }
 #user-container {
@@ -149,7 +149,7 @@ main, #messages-card {
   top: -1px;
 }
 .message img {
-  max-width: 300px;
+  max-width: 200px;
   max-height: 200px;
 }
 #mediaCapture {
@@ -162,7 +162,7 @@ main, #messages-card {
   }
   #user-container {
     top: 72px;
-    background-color: rgb(66, 18, 94);
+    background-color: #696565;
     height: 38px;
     padding-top: 3px;
     padding-right: 2px;
@@ -175,10 +175,10 @@ main, #messages-card {
   }
 }
 .mdl-textfield__label:after {
-  background-color: #641572;
+  background-color: #696565;
 }
 .mdl-textfield--floating-label.is-focused .mdl-textfield__label {
-  color: #641572;
+  color: #696565;
 }
 .mdl-button .material-icons {
   top: -1px;
