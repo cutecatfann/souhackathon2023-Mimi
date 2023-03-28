@@ -1,7 +1,7 @@
 {
-  "name": "friendlychat",
+  "name": "shakespearechat",
   "version": "1.0.0",
-  "description": "[Firebase Web Codelab](https://firebase.google.com/codelabs/firebase-web)",
+  "description": "SOU Hackathon 2023",
   "private": true,
   "scripts": {
     "build": "webpack",
