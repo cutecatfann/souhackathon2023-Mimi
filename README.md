@@ -1,4 +1,4 @@
-# Shakesphere Chat Room
+# Shakespere Chat Room
 
 Join our chatroom with the link *https://hackathon-chat-c98b9.web.app/* and have fun with your friends talking like Shakespherian lunatics! It's a fun way to kill time and also maybe kill your starcrossed lover! Or if you want to ruin the fun, you can also talk in normal English... I'm not your dad.
 
@@ -8,22 +8,21 @@ It also builds off of this training model: *https://github.com/Jmkernes/Shakespe
 
 For actual implementation we would train our own model, but given the time constraints of the Hackathon, we decided to use a pretrained model.
 
-### Summary of Code
+## Summary of Code
 Our code is a Firebase hosted web based chat application. It is hosted using a combination of Firebase and Google Cloud Platform along with GCP storage and Google Authentication. It uses tenserflow to tokenize standard English into Shakespearean English. It utilizes faithful translation which uses beam search to attempt to find the most probable Shakespearian translation. It therefore allows the user to either input a message in standard English, or enter a message to be translated into Shakespearean English, or enter an image to be shared in the chat. 
+___
 
-
-### Requirements for Replication
+## Requirements for Replication
 -  Python
  - Firebase
  - React
  - Node.js
  - Tensorflow
-___
 
-### How To Run It
+## How To Run It
 Either go to the chat room, and play with it there, or go replicate in Firebase.
 
-#### Firebase Project Setup
+### Firebase Project Setup
 * Clone this code into your IDE and CD open the chat folder
 * Go to the Firebase console, and Add project. Do no enable Google Analytics. 
 * Click the web icon to create a new Firebase web app, then register the app
@@ -35,14 +34,14 @@ Either go to the chat room, and play with it there, or go replicate in Firebase.
 * Enable Cloud Firestore by clicking Firestore Database. Create a database in Test mode and create
 * Enable Storage by clicking storage and enable it in Test mode. It may be already enabled for you
 
-#### Connect to Firebase
+### Connect to Firebase
 * Within the chat folder run the following commands: 
 - npm -g install firebase-tools
 - firebase --version
 - firebase login
 - firebase use --add // Here, select the project you created above. Set the alias to default
 
-#### Deploy the App
+### Deploy the App
 - Run this command: firebase deploy --except functions
 
 Yay! You are now running your own Firebase chat app
