@@ -1,6 +1,6 @@
-# Shakespere Chat Room
+# Shakespeare Chat Room
 
-Join our chatroom with the link *https://hackathon-chat-c98b9.web.app/* and have fun with your friends talking like Shakespherian lunatics! It's a fun way to kill time and also maybe kill your starcrossed lover! Or if you want to ruin the fun, you can also talk in normal English... I'm not your dad.
+Join our chatroom with the link *https://hackathon-chat-c98b9.web.app/* and have fun with your friends talking like Shakespearerian lunatics! It's a fun way to kill time and also maybe kill your starcrossed lover! Or if you want to ruin the fun, you can also talk in normal English... I'm not your dad.
 
 This code was loosely inspired by this repo: *https://github.com/firebase/codelab-friendlychat-web*
 
@@ -8,8 +8,14 @@ It also builds off of this training model: *https://github.com/Jmkernes/Shakespe
 
 For actual implementation we would train our own model, but given the time constraints of the Hackathon, we decided to use a pretrained model.
 
+# Collaborators:
+This was a team effort between Mimi Pieper and Sergio Mendoza. Mimi's Github username is cutecatfann, and Sergio's username is DogeLovesHipster
+
+# NOTE
+The Bard function is currently malfunctioning due to flask backend errors, which means that it is not displaying the translated Shakespeare in the chat. The translator works, just not in the chat. As such, appreciate the chat for what it is and know that the AI does work. We would have made it work, but we ran out of time.
+
 ## Summary of Code
-Our code is a Firebase hosted web based chat application. It is hosted using a combination of Firebase and Google Cloud Platform along with GCP storage and Google Authentication. It uses tenserflow to tokenize standard English into Shakespearean English. It utilizes faithful translation which uses beam search to attempt to find the most probable Shakespearian translation. It therefore allows the user to either input a message in standard English, or enter a message to be translated into Shakespearean English, or enter an image to be shared in the chat. 
+Our code is a Firebase hosted web based chat application. It is hosted using a combination of Firebase and Google Cloud Platform along with GCP storage and Google Authentication. It uses tenserflow to tokenize standard English into Shakespearean English. It utilizes faithful translation which uses beam search to attempt to find the most probable Shakespearian translation. It therefore allows the user to either input a message in standard English, or enter a message to be translated into Shakespearean English, or enter an image to be shared in the chat. The AI model utilizes a Flask backend, and connects to a React front end, and is facilitated with Firebase.
 ___
 
 ## Requirements for Replication

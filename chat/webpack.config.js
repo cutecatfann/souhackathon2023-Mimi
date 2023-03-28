@@ -20,7 +20,6 @@ const appConfig = {
 const serviceWorkerConfig = {
   ...rootConfig,
   entry: './src/firebase-messaging-sw.js',
-  // TODO(jhuleatt): Remove this once https://github.com/firebase/firebase-js-sdk/issues/5314 is resolved
   module: {
     rules: [
       {

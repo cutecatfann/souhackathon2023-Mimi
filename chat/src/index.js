@@ -1,7 +1,6 @@
 "use strict";
 
 import { initializeApp } from "firebase/app";
-import { translateText } from "./translate.js";
 import {
   getAuth,
   onAuthStateChanged,
@@ -69,14 +68,46 @@ function isUserSignedIn() {
 
 // Saves a new message to Cloud Firestore.
 async function saveMessage(messageText) {
-  // Add a new message entry to the Firebase database.
+  if (isBardClicked) {
+  // Translate the message if "BARD!" button is clicked
   try {
+    const response = await fetch('/translate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+  },
+  body:JSON.stringify({
+    'text': messageText,
+  })
+  });
+  const data = await response.json();
+  messageText = data.translation;
+  } catch (error) {
+    console.error('Error translating message', error);
+  }
+  }
+
+  const submitButton = document.getElementById('submit');
+  const ShakespearifyButton = document.getElementById('Shakespeareify-button');
+
+  try {
+    if (submitButton.disabled === false) {
     await addDoc(collection(getFirestore(), "messages"), {
       name: getUserName(),
       text: messageText,
       profilePicUrl: getProfilePicUrl(),
       timestamp: serverTimestamp(),
     });
+  } 
+  else if (ShakespearifyButton.disabled === false) {
+    await addDoc(collection(getFirestore(), "messages"), {
+      name: getUserName(),
+      text: messageText,
+      profilePicUrl: getProfilePicUrl(),
+      timestamp: serverTimestamp(),
+      isShakespeare: true
+    });
+  }
   } catch (error) {
     console.error("Error writing new message to Firebase Database", error);
   }
@@ -308,7 +339,7 @@ function deleteMessage(id) {
   }
 }
 
-function createAndInsertMessage(id, timestamp) {
+function createAndInsertMessage(id, timestamp, messageText) {
   const container = document.createElement("div");
   container.innerHTML = MESSAGE_TEMPLATE;
   const div = container.firstChild;
@@ -318,6 +349,11 @@ function createAndInsertMessage(id, timestamp) {
   // https://stackoverflow.com/a/47781432/4816918
   timestamp = timestamp ? timestamp.toMillis() : Date.now();
   div.setAttribute("timestamp", timestamp);
+
+  if (isBardClicked) {
+    const textElement = div.querySelector(".message-text");
+    textElement.innerHTML = messageText;
+  }
 
   // figure out where to insert new message
   const existingMessages = messageListElement.children;
@@ -429,3 +465,4 @@ const firebaseApp = initializeApp(getFirebaseConfig());
 getPerformance();
 initFirebaseAuth();
 loadMessages();
+
