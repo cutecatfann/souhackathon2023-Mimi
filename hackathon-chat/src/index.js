@@ -16,6 +16,7 @@
 "use strict";
 
 import { initializeApp } from "firebase/app";
+import { translateText } from "./translate.js";
 import {
   getAuth,
   onAuthStateChanged,
