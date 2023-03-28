@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "hackathon-chat-2-5a1f1",
+    "def": "hackathon-chat-2",
+    "deff": "hackathon-chat-3"
+  },
+  "targets": {},
+  "etags": {}
+}
