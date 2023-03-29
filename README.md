@@ -24,6 +24,8 @@ ___
  - React
  - Node.js
  - Tensorflow
+ - Npm
+ - Flask
 
 ## How To Run It
 Either go to the chat room, and play with it there, or go replicate in Firebase.
